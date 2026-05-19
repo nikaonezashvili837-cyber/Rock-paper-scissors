@@ -4,6 +4,11 @@
     {
         public static void Main()
         {
+            Move[] movesArray = [
+                new Move{moveName = "Rock", beats = "Scissors"},
+                new Move{moveName = "Scissors", beats = "Paper"},
+                new Move{moveName = "Paper", beats = "Rock"},
+            ];
             string welcomeScreen = @"
        ========================================
              ROCK PAPER SCISSORS
@@ -31,5 +36,10 @@
                 }
             }
         }
+    }
+    struct Move
+    {
+        public string moveName;
+        public string beats;
     }
 }
