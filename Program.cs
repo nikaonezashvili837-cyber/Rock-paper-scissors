@@ -24,22 +24,25 @@
 
            ---------------------------------------
            Enter your choice: ";
-           bool gameLoop = true;
+            bool gameLoop = true;
+            Console.WriteLine(welcomeScreen);
             while (gameLoop)
             {
-                Console.WriteLine(welcomeScreen);
                 string? input = Console.ReadLine();
-                if(input == "X")
+                if (input == "X")
                 {
                     break;
 
                 }
+                int idx = Convert.ToInt32(input);
+                Move choosenMove = movesArray[idx-1];
+                Console.WriteLine(choosenMove.moveName);
             }
-        }
     }
     struct Move
     {
         public string moveName;
         public string beats;
+    }
     }
 }
