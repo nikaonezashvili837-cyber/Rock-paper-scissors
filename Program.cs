@@ -35,8 +35,9 @@
 
                 }
                 int idx = Convert.ToInt32(input);
-                Move choosenMove = movesArray[idx-1];
-                Console.WriteLine(choosenMove.moveName);
+                Random rnd = new Random();
+                Move UserMove = movesArray[idx-1];
+                Move ComputerMove = movesArray[rnd.Next(0,movesArray.Length)];
             }
     }
     struct Move
