@@ -40,6 +40,26 @@
                 if (userScore >= movesArray.Length || computerScore >= movesArray.Length)
                 {
                     CheckWinner(userScore, computerScore);
+                    userScore = 0;
+                    computerScore = 0;
+                    string restartMenuMessage = @"
+                    ====================================
+                    GAME FINISHED
+                    ====================================
+                    Press [R] to play again
+                    Press [X] to exit the game
+                    ====================================";
+                    Console.WriteLine(restartMenuMessage);
+                    string? restartQuery = Console.ReadLine();
+                    if(restartQuery == "R")
+                    {
+                        Console.WriteLine(welcomeScreen);
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
                 if (idx > movesArray.Length)
                 {
@@ -95,7 +115,8 @@
             if (userScore > computerScore)
             {
                 Console.WriteLine(userWonMessage);
-            }else if(computerScore > userScore)
+            }
+            else if (computerScore > userScore)
             {
                 Console.WriteLine(computerWonMessage);
             }
