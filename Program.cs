@@ -37,7 +37,11 @@
 
                 }
                 int idx = Convert.ToInt32(input);
-                if(idx > movesArray.Length)
+                if (userScore >= movesArray.Length || computerScore >= movesArray.Length)
+                {
+                    CheckWinner(userScore, computerScore);
+                }
+                if (idx > movesArray.Length)
                 {
                     Console.WriteLine("Invalid number");
                     Console.WriteLine(welcomeScreen);
@@ -63,6 +67,41 @@
                     Console.WriteLine(welcomeScreen);
                     continue;
                 }
+            }
+        }
+        public static void CheckWinner(byte userScore, byte computerScore)
+        {
+            string userWonMessage = @"
+            ====================================
+            YOU ARE VICTORIOUS
+            ====================================
+            The computer has been defeated.
+            Your move was superior.
+            ====================================";
+            string computerWonMessage = @"
+            ====================================
+            COMPUTER WINS
+            ====================================
+            The machine outplayed you.
+            Better luck next round.
+            ====================================";
+            string tieMessage = @"
+            ====================================
+            DRAW
+            ====================================
+            Both sides chose equally well.
+            No winner this round.
+            ====================================";
+            if (userScore > computerScore)
+            {
+                Console.WriteLine(userWonMessage);
+            }else if(computerScore > userScore)
+            {
+                Console.WriteLine(computerWonMessage);
+            }
+            else
+            {
+                Console.WriteLine(tieMessage);
             }
         }
         struct Move
