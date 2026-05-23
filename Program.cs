@@ -37,6 +37,12 @@
 
                 }
                 int idx = Convert.ToInt32(input);
+                if(idx > movesArray.Length)
+                {
+                    Console.WriteLine("Invalid number");
+                    Console.WriteLine(welcomeScreen);
+                    continue;
+                }
                 Random rnd = new Random();
                 Move UserMove = movesArray[idx - 1];
                 Move ComputerMove = movesArray[rnd.Next(0, movesArray.Length)];
